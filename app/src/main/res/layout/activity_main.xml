@@ -4,8 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
+
+    <FrameLayout
+        android:id="@+id/fragment_events"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="60dp"
+        android:background="@null">
+
+        <Button
+            android:id="@+id/btn_events_list"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_more_events"
+            android:drawableBottom="@drawable/bottom"
+            android:text="Ver mas eventos"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:backgroundTint="@null" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/fragment_register"
@@ -16,12 +37,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="this"
-            android:text="Register"
-            tools:ignore="OnClick" />
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="left"
+            android:background="@null"
+            android:contentDescription="TODO"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/btn_login_register"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user"
+            tools:ignore="SpeakableTextPresentCheck" />
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
