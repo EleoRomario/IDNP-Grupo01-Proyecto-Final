@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventOverview"
-        android:name="idnp.grupo_uno.proyecto_final.EventOverview"
+        android:name="idnp.grupo_uno.proyecto_final.ui.events.EventOverviewFragment"
         android:label="fragment_event_overview"
         tools:layout="@layout/fragment_event_overview" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventDetailFragment"
-        android:name="idnp.grupo_uno.proyecto_final.EventDetailFragment"
+        android:name="idnp.grupo_uno.proyecto_final.ui.events.EventDetailFragment"
         android:label="fragment_event_detail"
         tools:layout="@layout/fragment_event_detail" >
         <action
