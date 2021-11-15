@@ -1,5 +1,7 @@
 package idnp.grupo_uno.proyecto_final;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -7,6 +9,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,11 +18,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import idnp.grupo_uno.proyecto_final.databinding.ActivityDashboardBinding;
+import idnp.grupo_uno.proyecto_final.db.DbHelper;
 
 public class DashboardActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityDashboardBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,9 @@ public class DashboardActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+
     }
 
     @Override

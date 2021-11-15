@@ -6,10 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.IDNPGrupo01ProyectoFinal.AppBarOverlay">
+
+
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,7 +24,11 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <include layout="@layout/content_dashboard" />
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
