@@ -7,62 +7,107 @@
     android:background="@drawable/bg"
     tools:context=".ui.events.EventOverviewFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="48dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_events_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <FrameLayout
-        android:id="@+id/fragment_events"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@null"
-        tools:layout_editor_absoluteY="60dp">
-
-        <Button
-            android:id="@+id/btn_events_list"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_gravity="bottom"
-            android:background="@drawable/btn_more_events"
-            android:drawableBottom="@drawable/bottom"
-            android:text="Ver mas eventos"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:padding="32dp">
 
-    <FrameLayout
-        android:id="@+id/fragment_register"
-        android:layout_width="409dp"
-        android:layout_height="657dp"
+            <TextView
+                android:id="@+id/event_title"
+                style="?textAppearanceHeadline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fiesta de las guaguas y mazapanes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/event_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/event_title"
+                app:layout_constraintTop_toBottomOf="@id/event_title">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_filled_start"
+                    app:tint="@color/yellow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_filled_start"
+                    app:tint="@color/yellow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_filled_start"
+                    app:tint="@color/yellow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_half_star"
+                    app:tint="@color/yellow" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_star_outline"
+                    app:tint="@color/yellow" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_calendar_icon"
+                app:layout_constraintStart_toStartOf="@id/event_title"
+                app:layout_constraintTop_toBottomOf="@id/event_stars" />
+
+            <TextView
+                android:id="@+id/event_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 y 2 de noviembre"
+                app:layout_constraintBottom_toBottomOf="@id/calendar_icon"
+                app:layout_constraintStart_toEndOf="@id/calendar_icon"
+                app:layout_constraintTop_toTopOf="@id/calendar_icon" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ver detalle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/event_title"
+                app:layout_constraintTop_toBottomOf="@id/calendar_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_events_list"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:background="@drawable/btn_more_events"
+        android:drawableBottom="@drawable/bottom"
+        android:text="Ver mas eventos"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="left"
-            android:background="@null"
-            android:contentDescription="TODO"
-            android:padding="13dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/back"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <ImageButton
-            android:id="@+id/btn_login_register"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="right"
-            android:background="@null"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/user"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </FrameLayout>
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
