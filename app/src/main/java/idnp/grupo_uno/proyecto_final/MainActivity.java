@@ -21,8 +21,8 @@ import idnp.grupo_uno.proyecto_final.ui.events.EventsListFragment;
 import idnp.grupo_uno.proyecto_final.ui.register.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     private static final String TAG = "main";
+
 
     Button fragRegister, crearR;
 
@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button fragEventsList;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         fragRegister = findViewById(R.id.btn_login_register);
         fragRegister.setOnClickListener(this);
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
+
     public void onClick(View v){
         if(v.getId()==R.id.btn_back){
             onBackPressed();
@@ -73,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             fragEventsList.setVisibility(View.GONE);
         }
 
-    }
 
+    public void onClick(View v) {
+
+    }
 }

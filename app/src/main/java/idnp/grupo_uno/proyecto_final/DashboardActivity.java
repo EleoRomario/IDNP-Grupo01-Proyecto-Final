@@ -17,19 +17,20 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+
 import idnp.grupo_uno.proyecto_final.databinding.ActivityDashboardBinding;
 import idnp.grupo_uno.proyecto_final.db.DbHelper;
 
-public class DashboardActivity extends AppCompatActivity {
 
+public class DashboardActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
-    private ActivityDashboardBinding binding;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,6 +48,7 @@ public class DashboardActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
 
 
 
