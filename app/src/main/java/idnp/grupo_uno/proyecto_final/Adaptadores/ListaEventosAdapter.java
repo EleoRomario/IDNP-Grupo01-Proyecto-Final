@@ -1,5 +1,7 @@
 package idnp.grupo_uno.proyecto_final.Adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 import idnp.grupo_uno.proyecto_final.R;
+import idnp.grupo_uno.proyecto_final.VerActivity;
 import idnp.grupo_uno.proyecto_final.entidades.Eventos;
 
 public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapter.ContactoViewHolder> {
@@ -86,8 +89,15 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
             viewLongitud = itemView.findViewById(R.id.viewLongitud);
             viewLatitud = itemView.findViewById(R.id.viewLatitud);
 
-
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("ID",listaEventos.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

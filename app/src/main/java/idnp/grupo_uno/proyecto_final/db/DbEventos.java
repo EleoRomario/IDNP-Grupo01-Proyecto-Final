@@ -69,4 +69,30 @@ public class DbEventos extends DbHelper{
         cursorContactos.close();
         return listaEventos;
     }
+
+    public Eventos verEventos(int id){
+        DbHelper dphelper = new DbHelper(context);
+        SQLiteDatabase db = dphelper.getWritableDatabase();
+
+        Eventos eventos = null;
+        Cursor cursorContactos = null;
+
+        cursorContactos = db.rawQuery("SELECT * FROM "+TABLA_EVENTOS+" WHERE id ="+id+" LIMIT 1",null);
+        if(cursorContactos.moveToFirst()){
+
+
+                eventos = new Eventos();
+                eventos.setId(cursorContactos.getInt(0));
+                eventos.setNombre(cursorContactos.getString(1));
+                eventos.setTitulo(cursorContactos.getString(2));
+                eventos.setFecha(cursorContactos.getInt(3));
+                eventos.setDescripcion(cursorContactos.getString(4));
+                eventos.setLatitud(cursorContactos.getDouble(5));
+                eventos.setLongitud(cursorContactos.getDouble(6));
+
+
+        }
+        cursorContactos.close();
+        return eventos;
+    }
 }
