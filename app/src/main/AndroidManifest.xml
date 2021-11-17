@@ -11,31 +11,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IDNPGrupo01ProyectoFinal">
+
+        <activity
+            android:name=".VerActivity"
+            android:exported="true" android:parentActivityName=".MainActivity2"
+            android:theme="@style/Theme.AppCompat.Light">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity2" />
+        </activity>
+        <!--
         <activity
             android:name=".MainActivity2"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
-
+        -->
         <activity
             android:name=".NuevoActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity2"
             android:theme="@style/Theme.AppCompat.Light">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity2"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity2" />
         </activity>
-
         <activity
             android:name=".DashboardActivity"
             android:exported="true"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.IDNPGrupo01ProyectoFinal.NoActionBar" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".MainActivity2"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
