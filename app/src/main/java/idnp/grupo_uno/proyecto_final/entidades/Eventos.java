@@ -9,6 +9,18 @@ public class Eventos {
     private Double longitud;
     private Integer fecha;
     private String descripcion;
+    public Eventos(){
+
+    }
+    public  Eventos(Integer id, String nombre, String titulo, Double latitud, Double longitud, Integer fecha, String descripcion){
+        setId(id);
+        setNombre(nombre);
+        setTitulo(titulo);
+        setLatitud(latitud);
+        setLongitud(longitud);
+        setFecha(fecha);
+        setDescripcion(descripcion);
+    }
 
     public Integer getId() {
         return id;

@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ui.dashboard.EventsDBFragment"
     android:background="#C7ECEE"
-    android:orientation="vertical"
-    tools:context=".MainActivity2">
+    android:orientation="vertical">
 
-    <!--<Button
-        android:id="@+id/btnCrear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </Button>-->
 
     <SearchView
         android:id="@+id/buscar"
@@ -42,6 +35,5 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/mas" />
-
 
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package idnp.grupo_uno.proyecto_final;
 
+import static androidx.navigation.Navigation.findNavController;
+
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +18,8 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import idnp.grupo_uno.proyecto_final.Adaptadores.ListaEventosAdapter;
@@ -30,6 +34,8 @@ public class MainActivity2 extends AppCompatActivity implements SearchView.OnQue
     ArrayList<Eventos> listaArrayEventos;
     Button btnCrear;
     ListaEventosAdapter adapter;
+    FloatingActionButton btnAgregar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +65,13 @@ public class MainActivity2 extends AppCompatActivity implements SearchView.OnQue
         });*/
 
         txtBuscar.setOnQueryTextListener(this);
+        btnAgregar = findViewById(R.id.mas);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findNavController(view).navigate(R.id.action_registerFragment_to_eventsDBFragment);
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
