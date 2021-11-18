@@ -68,8 +68,7 @@ public class EditEventFragment extends Fragment {
 
     int position;
     long id;
-    String lugar, titulo, descripcion;
-    int fecha;
+    String fecha, lugar, titulo, descripcion;
     double latitud, longitud;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +81,7 @@ public class EditEventFragment extends Fragment {
         lugar=getArguments().getString("LUGAR");
         titulo=getArguments().getString("TITULO");
         descripcion=getArguments().getString("DESCRIPCION");
-        fecha=getArguments().getInt("FECHA");
+        fecha=getArguments().getString("FECHA");
         latitud=getArguments().getDouble("LATITUD");
         longitud=getArguments().getDouble("LONGITUD");
     }
@@ -104,7 +103,7 @@ public class EditEventFragment extends Fragment {
 
         txtNombre.getEditText().setText(lugar);
         txtTitulo.getEditText().setText(titulo);
-        txtFecha.getEditText().setText(String.valueOf(fecha));
+        txtFecha.getEditText().setText(fecha);
         txtDescripcion.getEditText().setText(descripcion);
         txtLatitud.getEditText().setText(String.valueOf(latitud) );
         txtLongitud.getEditText().setText(String.valueOf(longitud) );
@@ -119,7 +118,7 @@ public class EditEventFragment extends Fragment {
             public void onClick(View view) {
                 lugar = txtNombre.getEditText().getText().toString();
                 titulo = txtTitulo.getEditText().getText().toString();
-                fecha = Integer.parseInt(txtFecha.getEditText().getText().toString());
+                fecha = txtFecha.getEditText().getText().toString();
                 descripcion = txtDescripcion.getEditText().getText().toString();
                 latitud = Double.parseDouble(txtLatitud.getEditText().getText().toString());
                 longitud = Double.parseDouble(txtLongitud.getEditText().getText().toString());

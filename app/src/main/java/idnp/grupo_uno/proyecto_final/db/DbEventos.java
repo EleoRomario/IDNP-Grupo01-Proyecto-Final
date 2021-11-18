@@ -96,7 +96,7 @@ public class DbEventos extends DbHelper{
         cursorContactos.close();
         return eventos;
     }
-    public boolean editarEvento(long id, String nombre, String titulo, Integer fecha, String descripcion, Double latitud, Double longitud){
+    public boolean editarEvento(long id, String nombre, String titulo, String fecha, String descripcion, Double latitud, Double longitud){
 
         boolean correcto = false;
 

@@ -87,8 +87,7 @@ public class EventsDBFragment extends Fragment implements SearchView.OnQueryText
     FloatingActionButton btnAgregar;
 
     //Comunicar fragments
-    Activity activity;
-    FragmentComunication iComunication;
+    //Activity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
