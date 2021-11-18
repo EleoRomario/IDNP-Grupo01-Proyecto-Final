@@ -1,6 +1,8 @@
 package idnp.grupo_uno.proyecto_final;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -16,6 +18,9 @@ import android.widget.ImageButton;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import idnp.grupo_uno.proyecto_final.Adaptadores.FragmentComunication;
+import idnp.grupo_uno.proyecto_final.entidades.Eventos;
+import idnp.grupo_uno.proyecto_final.ui.dashboard.EditEventFragment;
 import idnp.grupo_uno.proyecto_final.ui.events.EventsListFragment;
 import idnp.grupo_uno.proyecto_final.ui.register.RegisterFragment;
 
@@ -31,4 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
     }
+
+
 }

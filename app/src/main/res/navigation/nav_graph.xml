@@ -57,11 +57,7 @@
         android:id="@+id/newEventFragment"
         android:name="idnp.grupo_uno.proyecto_final.ui.dashboard.NewEventFragment"
         android:label="fragment_new_event"
-        tools:layout="@layout/fragment_new_event" >
-        <action
-            android:id="@+id/action_newEventFragment_to_editEventFragment"
-            app:destination="@id/editEventFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_new_event" />
     <fragment
         android:id="@+id/eventsDBFragment"
         android:name="idnp.grupo_uno.proyecto_final.ui.dashboard.EventsDBFragment"
@@ -70,10 +66,17 @@
         <action
             android:id="@+id/action_eventsDBFragment_to_newEventFragment"
             app:destination="@id/newEventFragment" />
+        <action
+            android:id="@+id/action_eventsDBFragment_to_editEventFragment"
+            app:destination="@id/editEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/editEventFragment"
         android:name="idnp.grupo_uno.proyecto_final.ui.dashboard.EditEventFragment"
         android:label="fragment_edit_event"
-        tools:layout="@layout/fragment_edit_event" />
+        tools:layout="@layout/fragment_edit_event" >
+        <action
+            android:id="@+id/action_editEventFragment_to_eventsDBFragment"
+            app:destination="@id/eventsDBFragment" />
+    </fragment>
 </navigation>

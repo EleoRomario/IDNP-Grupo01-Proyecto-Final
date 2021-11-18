@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.sql.Blob;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class DbEventos extends DbHelper{
         super(context);
         this.context = context;
     }
-    public long insertaEventos(String nombre, String titulo, Integer fecha, String descripcion, Double latitud, Double longitud){
+    public long insertaEventos(String nombre, String titulo, String fecha, String descripcion, Double latitud, Double longitud){
 
         long id = 0;
 
@@ -58,7 +59,7 @@ public class DbEventos extends DbHelper{
                 eventos.setId(cursorContactos.getInt(0));
                 eventos.setNombre(cursorContactos.getString(1));
                 eventos.setTitulo(cursorContactos.getString(2));
-                eventos.setFecha(cursorContactos.getInt(3));
+                eventos.setFecha(cursorContactos.getString(3));
                 eventos.setDescripcion(cursorContactos.getString(4));
                 eventos.setLatitud(cursorContactos.getDouble(5));
                 eventos.setLongitud(cursorContactos.getDouble(6));
@@ -85,7 +86,7 @@ public class DbEventos extends DbHelper{
                 eventos.setId(cursorContactos.getInt(0));
                 eventos.setNombre(cursorContactos.getString(1));
                 eventos.setTitulo(cursorContactos.getString(2));
-                eventos.setFecha(cursorContactos.getInt(3));
+                eventos.setFecha(cursorContactos.getString(3));
                 eventos.setDescripcion(cursorContactos.getString(4));
                 eventos.setLatitud(cursorContactos.getDouble(5));
                 eventos.setLongitud(cursorContactos.getDouble(6));
@@ -94,5 +95,46 @@ public class DbEventos extends DbHelper{
         }
         cursorContactos.close();
         return eventos;
+    }
+    public boolean editarEvento(long id, String nombre, String titulo, Integer fecha, String descripcion, Double latitud, Double longitud){
+
+        boolean correcto = false;
+
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try{
+            db.execSQL(" UPDATE " + TABLA_EVENTOS + " SET nombre ='" + nombre + "', titulo ='" + titulo + "', fecha ='" + fecha + "', descripcion ='" + descripcion + "', latitud ='" + latitud + "', longitud ='" + longitud + "' WHERE id ='" + id + "' ");
+            correcto = true;
+            Log.d("EDIT", nombre);
+
+        }catch(Exception ex){
+            ex.toString();
+            correcto = false;
+        }finally {
+            db.close();
+        }
+        return correcto;
+
+    }
+    public boolean eliminarEvento(long id){
+
+        boolean correcto = false;
+
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try{
+            db.execSQL(" DELETE FROM " + TABLA_EVENTOS + " WHERE id = '" + id + "' ");
+            correcto = true;
+
+        }catch(Exception ex){
+            ex.toString();
+            correcto = false;
+        }finally {
+            db.close();
+        }
+        return correcto;
+
     }
 }

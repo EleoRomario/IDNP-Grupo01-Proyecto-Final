@@ -13,30 +13,6 @@
         android:theme="@style/Theme.IDNPGrupo01ProyectoFinal">
 
         <activity
-            android:name=".VerActivity"
-            android:exported="true" android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".MainActivity2"
-            android:exported="true"
-            android:icon="@drawable/logo"
-            android:label="Cultura | Administrador"
-            android:theme="@style/Theme.IDNPGrupo01ProyectoFinal"/>
-
-        <activity
-            android:name=".NuevoActivity"
-            android:exported="true"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".DashboardActivity"
             android:exported="true"
             android:label="@string/title_activity_dashboard"

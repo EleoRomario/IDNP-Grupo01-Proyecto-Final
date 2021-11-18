@@ -2,13 +2,19 @@ package idnp.grupo_uno.proyecto_final.ui.dashboard;
 
 import static androidx.navigation.Navigation.findNavController;
 
+import android.app.Activity;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +26,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import idnp.grupo_uno.proyecto_final.Adaptadores.FragmentComunication;
 import idnp.grupo_uno.proyecto_final.Adaptadores.ListaEventosAdapter;
 import idnp.grupo_uno.proyecto_final.R;
 import idnp.grupo_uno.proyecto_final.db.DbEventos;
@@ -31,7 +38,7 @@ import idnp.grupo_uno.proyecto_final.entidades.Eventos;
  * Use the {@link EventsDBFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventsDBFragment extends Fragment {
+public class EventsDBFragment extends Fragment implements SearchView.OnQueryTextListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,6 +86,9 @@ public class EventsDBFragment extends Fragment {
     ListaEventosAdapter adapter;
     FloatingActionButton btnAgregar;
 
+    //Comunicar fragments
+    Activity activity;
+    FragmentComunication iComunication;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,7 +99,7 @@ public class EventsDBFragment extends Fragment {
         DbEventos dbEventos = new DbEventos(getContext());
 
         listaArrayEventos = new ArrayList<>();
-        adapter = new ListaEventosAdapter(dbEventos.mostrarEventos());
+        adapter = new ListaEventosAdapter(dbEventos.mostrarEventos(),communication);
         listaEventos.setAdapter(adapter);
 
         DbHelper dbHelper = new DbHelper(getContext());
@@ -102,6 +112,39 @@ public class EventsDBFragment extends Fragment {
                 findNavController(view).navigate(R.id.action_eventsDBFragment_to_newEventFragment);
             }
         });
+
+        txtBuscar.setOnQueryTextListener(this);
+
         return vista;
+    }
+    ListaEventosAdapter.FragmentCommunication communication = new ListaEventosAdapter.FragmentCommunication() {
+        @Override
+        public void respond(int position,long id,String lugar, String titulo, String descripcion, String fecha, Double latitud, Double longitud) {
+            EditEventFragment fragmentB=new EditEventFragment();
+            Bundle bundle=new Bundle();
+            bundle.putLong("ID",id);
+            bundle.putString("LUGAR",lugar);
+            bundle.putString("TITULO",titulo);
+            bundle.putString("DESCRIPCION",descripcion);
+            bundle.putString("FECHA",fecha);
+            bundle.putDouble("LATITUD",latitud);
+            bundle.putDouble("LONGITUD",longitud);
+            fragmentB.setArguments(bundle);
+            FragmentManager manager=getFragmentManager();
+            FragmentTransaction transaction=manager.beginTransaction();
+            transaction.replace(R.id.nav_host_fragment,fragmentB).commit();
+        }
+
+    };
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        adapter.filtrado(s);
+        return false;
     }
 }

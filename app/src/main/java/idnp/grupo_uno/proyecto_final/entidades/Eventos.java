@@ -1,18 +1,20 @@
 package idnp.grupo_uno.proyecto_final.entidades;
 
-public class Eventos {
+import java.io.Serializable;
+
+public class Eventos implements Serializable {
 
     private Integer id;
     private String nombre;
     private String titulo;
     private Double latitud;
     private Double longitud;
-    private Integer fecha;
+    private String fecha;
     private String descripcion;
     public Eventos(){
 
     }
-    public  Eventos(Integer id, String nombre, String titulo, Double latitud, Double longitud, Integer fecha, String descripcion){
+    public  Eventos(Integer id, String nombre, String titulo, Double latitud, Double longitud, String fecha, String descripcion){
         setId(id);
         setNombre(nombre);
         setTitulo(titulo);
@@ -70,11 +72,11 @@ public class Eventos {
         this.descripcion = descripcion;
     }
 
-    public Integer getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Integer fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 }

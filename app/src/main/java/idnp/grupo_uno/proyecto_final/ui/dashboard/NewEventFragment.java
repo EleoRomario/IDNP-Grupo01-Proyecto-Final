@@ -3,6 +3,8 @@ package idnp.grupo_uno.proyecto_final.ui.dashboard;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextUtils;
@@ -10,13 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import idnp.grupo_uno.proyecto_final.NuevoActivity;
 import idnp.grupo_uno.proyecto_final.R;
 import idnp.grupo_uno.proyecto_final.db.DbEventos;
 
@@ -87,11 +86,12 @@ public class NewEventFragment extends Fragment {
 
                 double lat = 0;
                 double lon = 0;
-                Integer fec = 0;
+                Editable fec = txtFecha.getEditText().getText();
                 Editable latt = txtLatitud.getEditText().getText();
                 Editable lont = txtLongitud.getEditText().getText();
                 Editable fect= txtFecha.getEditText().getText();
 
+                String fecs = (fec == null ? null : fec.toString());
                 String latts = (latt == null ? null : latt.toString());
                 String lonts = (lont == null ? null : lont.toString());
                 String fects = (fect == null ? null : fect.toString());
@@ -103,29 +103,27 @@ public class NewEventFragment extends Fragment {
                     lon = Double.parseDouble(lont.toString());
                 }
 
-                if(!TextUtils.isEmpty(fects)){
-                    fec = Integer.parseInt(fect.toString());
-                }
 
-                long id=dbEventos.insertaEventos(txtNombre.getEditText().getText().toString(), txtTitulo.getEditText().getText().toString(), fec, txtDescripcion.getEditText().getText().toString(), lat,lon);
+                long id=dbEventos.insertaEventos(txtNombre.getEditText().getText().toString(), txtTitulo.getEditText().getText().toString(), txtFecha.getEditText().getText().toString(), txtDescripcion.getEditText().getText().toString(), lat,lon);
 
                 if(id>0){
                     Toast.makeText(getContext(),"REGISTRO GUARDADO",Toast.LENGTH_LONG).show();
-                    limpiar();
+                    redirectEventsList();
 
                 }else{
                     Toast.makeText(getContext(),"ERROR AL GUARDAR REGISTRO",Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+
+
         return vista;
     }
-    private void limpiar(){
-        txtNombre.getEditText().setText("");
-        txtTitulo.getEditText().setText("");
-        txtFecha.getEditText().setText("");
-        txtDescripcion.getEditText().setText("");
-        txtLatitud.getEditText().setText("");
-        txtLongitud.getEditText().setText("");
+    public void redirectEventsList(){
+        EventsDBFragment eventsDBFragment = new EventsDBFragment();
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment,eventsDBFragment).commit();
     }
 }

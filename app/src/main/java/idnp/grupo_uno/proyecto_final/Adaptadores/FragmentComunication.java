@@ -1,5 +1,10 @@
 package idnp.grupo_uno.proyecto_final.Adaptadores;
 
+import android.view.View;
+
+import idnp.grupo_uno.proyecto_final.entidades.Eventos;
+
 public interface FragmentComunication {
-    void respond(int position,String name);
+
+    public void sendInfo(String nombre);
 }

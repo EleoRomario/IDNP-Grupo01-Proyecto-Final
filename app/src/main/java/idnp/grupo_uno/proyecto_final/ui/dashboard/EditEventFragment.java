@@ -1,15 +1,31 @@
 package idnp.grupo_uno.proyecto_final.ui.dashboard;
 
+import static androidx.navigation.Navigation.findNavController;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
+
+import idnp.grupo_uno.proyecto_final.Adaptadores.FragmentComunication;
+import idnp.grupo_uno.proyecto_final.Adaptadores.ListaEventosAdapter;
 import idnp.grupo_uno.proyecto_final.R;
+import idnp.grupo_uno.proyecto_final.db.DbEventos;
+import idnp.grupo_uno.proyecto_final.entidades.Eventos;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,7 +64,13 @@ public class EditEventFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+    TextInputLayout txtNombre, txtTitulo, txtFecha, txtDescripcion, txtImagen, txtLatitud, txtLongitud;
 
+    int position;
+    long id;
+    String lugar, titulo, descripcion;
+    int fecha;
+    double latitud, longitud;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +78,93 @@ public class EditEventFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        id=getArguments().getLong("ID");
+        lugar=getArguments().getString("LUGAR");
+        titulo=getArguments().getString("TITULO");
+        descripcion=getArguments().getString("DESCRIPCION");
+        fecha=getArguments().getInt("FECHA");
+        latitud=getArguments().getDouble("LATITUD");
+        longitud=getArguments().getDouble("LONGITUD");
     }
 
+    Button btnActualizar;
+    Button btnEliminar;
+    boolean correcto = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_event, container, false);
-    }
+        View vista = inflater.inflate(R.layout.fragment_edit_event, container, false);
+        txtNombre = vista.findViewById(R.id.edit_nombre);
+        txtTitulo = vista.findViewById(R.id.edit_titulo);
+        txtFecha = vista.findViewById(R.id.edit_fecha);
+        txtDescripcion = vista.findViewById(R.id.edit_descripcion);
+        txtLatitud = vista.findViewById(R.id.edit_latitud);
+        txtLongitud = vista.findViewById(R.id.edit_longitud);
 
+        txtNombre.getEditText().setText(lugar);
+        txtTitulo.getEditText().setText(titulo);
+        txtFecha.getEditText().setText(String.valueOf(fecha));
+        txtDescripcion.getEditText().setText(descripcion);
+        txtLatitud.getEditText().setText(String.valueOf(latitud) );
+        txtLongitud.getEditText().setText(String.valueOf(longitud) );
+
+
+
+
+        btnActualizar = vista.findViewById(R.id.actualizar);
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lugar = txtNombre.getEditText().getText().toString();
+                titulo = txtTitulo.getEditText().getText().toString();
+                fecha = Integer.parseInt(txtFecha.getEditText().getText().toString());
+                descripcion = txtDescripcion.getEditText().getText().toString();
+                latitud = Double.parseDouble(txtLatitud.getEditText().getText().toString());
+                longitud = Double.parseDouble(txtLongitud.getEditText().getText().toString());
+                Log.d("EDIT",String.valueOf(lugar));
+
+                DbEventos dbEventos = new DbEventos(getContext());
+                correcto = dbEventos.editarEvento(id,lugar,titulo,fecha,descripcion,latitud,longitud);
+                if(correcto){
+                    Toast.makeText(getContext(),"RESGISTRO MODIFICADO",Toast.LENGTH_LONG).show();
+                    redirectEventsList();
+                }else{
+                    Toast.makeText(getContext(),"RESGISTRO NO MODIFICADO",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        btnEliminar = vista.findViewById(R.id.eliminar);
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DbEventos dbEventos = new DbEventos(getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("¿Desea eliminar este evento?").setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        boolean correcto = dbEventos.eliminarEvento(id);
+                        if(correcto){
+                            redirectEventsList();
+                        }
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+            }
+        });
+
+        return vista;
+    }
+    public void redirectEventsList(){
+        EventsDBFragment eventsDBFragment = new EventsDBFragment();
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.replace(R.id.nav_host_fragment,eventsDBFragment).commit();
+    }
 }

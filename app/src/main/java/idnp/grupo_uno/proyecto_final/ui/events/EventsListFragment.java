@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import idnp.grupo_uno.proyecto_final.Adaptadores.EventsAdapter;
-import idnp.grupo_uno.proyecto_final.MainActivity2;
 import idnp.grupo_uno.proyecto_final.R;
 import idnp.grupo_uno.proyecto_final.databinding.FragmentEventsListBinding;
 import idnp.grupo_uno.proyecto_final.db.DbEventos;
