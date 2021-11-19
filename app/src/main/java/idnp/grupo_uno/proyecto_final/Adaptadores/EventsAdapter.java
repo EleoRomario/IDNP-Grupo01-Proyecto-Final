@@ -17,7 +17,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventosVie
     ArrayList<Eventos> listaEventos;
     private View.OnClickListener listener;
 
-
     public EventsAdapter(ArrayList<Eventos> listaEventos){
       this.listaEventos = listaEventos;
     }
