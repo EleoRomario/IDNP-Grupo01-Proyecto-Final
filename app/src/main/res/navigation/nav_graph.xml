@@ -10,11 +10,11 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_eventOverview"
-            app:destination="@id/eventOverview" />
-        <action
             android:id="@+id/action_registerFragment_to_eventsDBFragment"
             app:destination="@id/eventsDBFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_eventsListFragment"
+            app:destination="@id/eventsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventsListFragment"
@@ -51,7 +51,11 @@
         tools:layout="@layout/fragment_event_detail" >
         <action
             android:id="@+id/action_eventDetailFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/registerFragment" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventOverview"
+            app:destination="@id/eventOverview" />
     </fragment>
     <fragment
         android:id="@+id/newEventFragment"

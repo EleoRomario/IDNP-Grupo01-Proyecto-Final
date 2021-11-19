@@ -32,19 +32,17 @@ public class EventsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_events_list, container, false);
-        View vista=inflater.inflate(R.layout.fragment_events_list, container, false);
+        View vista = inflater.inflate(R.layout.fragment_events_list, container, false);
 
-        listaEventos =new ArrayList<>();
-        recyclerViewEventos= (RecyclerView) vista.findViewById(R.id.recycler_Events);
+        listaEventos = new ArrayList<>();
+        recyclerViewEventos = (RecyclerView) vista.findViewById(R.id.recycler_Events);
         recyclerViewEventos.setLayoutManager(new LinearLayoutManager(getContext()));
 
         DbEventos dbEventos = new DbEventos(getContext());
 
-        EventsAdapter adapter=new EventsAdapter(dbEventos.mostrarEventos());
+        EventsAdapter adapter = new EventsAdapter(dbEventos.mostrarEventos());
         recyclerViewEventos.setAdapter(adapter);
         return vista;
-
-
     }
 
 

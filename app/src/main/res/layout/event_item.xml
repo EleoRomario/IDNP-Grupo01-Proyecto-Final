@@ -78,10 +78,9 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/evento_01"
+                        android:id="@+id/see_overview_button"
                         android:layout_width="213dp"
                         android:layout_height="wrap_content"
-                        android:onClick="@{()->fragment.goToEventOverview()}"
                         android:text="Ver detalle" />
 
                 </LinearLayout>

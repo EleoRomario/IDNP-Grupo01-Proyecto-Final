@@ -89,7 +89,7 @@ public class RegisterFragment extends Fragment {
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener( getActivity(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -112,9 +112,9 @@ public class RegisterFragment extends Fragment {
         if (users != null) {
 
             Log.i("sd", "ingreso");
-            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_eventOverview);
+            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_eventsListFragment);
 
-           Toast.makeText(getActivity(), "Ingreso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Ingreso", Toast.LENGTH_SHORT).show();
         } else {
 
 
@@ -128,7 +128,7 @@ public class RegisterFragment extends Fragment {
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult res) {
-                    NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_registerFragment_to_eventOverview);
+                    NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_registerFragment_to_eventsListFragment);
 
                     if (res.getResultCode() == RC_SIGN_IN) {
 
@@ -157,7 +157,7 @@ public class RegisterFragment extends Fragment {
     }
 
     public void loginByFacebook() {
-        NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_eventOverview);
+        NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_eventsListFragment);
     }
 
     public void loginByGoogle() {
