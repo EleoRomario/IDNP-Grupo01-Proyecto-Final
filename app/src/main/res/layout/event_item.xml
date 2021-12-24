@@ -81,7 +81,7 @@
                         android:id="@+id/see_overview_button"
                         android:layout_width="213dp"
                         android:layout_height="wrap_content"
-                        android:text="Ver detalle" />
+                        android:text="@string/eventDetail" />
 
                 </LinearLayout>
             </LinearLayout>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IDNP-Grupo01-Proyecto-Final</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -15,32 +16,33 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <!-- Strings used for login interface -->
-    <string name="googleButton">Ingresar con Google</string>
-    <string name="facebookButton">Ingresar con Facebook</string>
-    <string name="title">Cultura</string>
-    <string name="hello">Bienvenido</string>
-    <string name="greeting">Accede a todas las festividade del Perú</string>
+    <!-- Strings used for login interface for navigation -->
+    <string name="googleButton">Login Google</string>
+    <string name="facebookButton">Login Facebook</string>
+    <string name="title">Culture</string>
+    <string name="hello">Welcome</string>
+    <string name="greeting">Access all the festivities of Peru</string>
 
     <!-- Strings used for event item Interface  -->
-    <string name="eventDetail">Ver Detalle</string>
+    <string name="eventDetail">Detail</string>
 
     <!-- Strings used for edit event Interface  -->
-    <string name="actualizar">Actualizar</string>
-    <string name="eliminar">Eliminar</string>
-    <string name="guardar">Guardar</string>
+    <string name="actualizar">Update</string>
+    <string name="eliminar">Delete</string>
+    <string name="guardar">Save</string>
 
     <!-- Strings used for list events Interface  -->
-    <string name="lista">Próximos eventos</string>
+    <string name="lista">Upcoming events</string>
 
-    <string name="hint_nombre">Nombre:</string>
-    <string name="hint_titulo">Titulo:</string>
-    <string name="hint_fecha">Fecha:</string>
-    <string name="hint_descripcion">Descripcion:</string>
-    <string name="hint_img">Imagen:</string>
-    <string name="hint_latitud">Latitud:</string>
-    <string name="hint_longitud">Longitud:</string>
-    <string name="hint_portada">Portada</string>
-    <string name="hint_lugar">Lugar</string>
+    <string name="hint_nombre">Name:</string>
+    <string name="hint_titulo">Title:</string>
+    <string name="hint_fecha">Date:</string>
+    <string name="hint_descripcion">Description:</string>
+    <string name="hint_img">Figure:</string>
+    <string name="hint_latitud">Latitude:</string>
+    <string name="hint_longitud">longitude:</string>
+    <string name="hint_portada">Front:</string>
+    <string name="hint_lugar">Place:</string>
+
 
 </resources>
