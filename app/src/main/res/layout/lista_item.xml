@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text="Titulo" />
+                    android:text="@string/hint_titulo" />
 
                 <EditText
                     android:id="@+id/viewTitulo"
@@ -73,7 +73,7 @@
                     android:layout_height="match_parent"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text="Latitud" />
+                    android:text="@string/hint_latitud" />
 
                 <EditText
                     android:id="@+id/viewLatitud"
@@ -97,7 +97,7 @@
                     android:layout_height="match_parent"
                     android:layout_span="1"
                     android:gravity="center"
-                    android:text="Longitud" />
+                    android:text="@string/hint_longitud" />
 
                 <EditText
                     android:id="@+id/viewLongitud"
@@ -120,7 +120,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Descripcion  " />
+                    android:text="@string/hint_descripcion" />
 
                 <EditText
                     android:id="@+id/viewDescripcion"
@@ -141,7 +141,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Fecha" />
+                    android:text="@string/hint_fecha" />
 
                 <EditText
                     android:id="@+id/viewFecha"
@@ -160,7 +160,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Nombre" />
+                    android:text="@string/hint_nombre" />
 
                 <EditText
                     android:id="@+id/viewNombre"
@@ -179,7 +179,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Portada" />
+                    android:text="@string/hint_portada" />
 
                 <ImageView
                     android:id="@+id/imageView2"

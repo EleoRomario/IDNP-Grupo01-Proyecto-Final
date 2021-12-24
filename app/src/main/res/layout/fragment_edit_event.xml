@@ -12,7 +12,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Lugar">
+        android:hint="@string/hint_lugar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Titulo">
+        android:hint="@string/hint_titulo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha">
+        android:hint="@string/hint_fecha">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripcion">
+        android:hint="@string/hint_descripcion">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Longitud">
+        android:hint="@string/hint_longitud">
 
         <com.google.android.material.textfield.TextInputEditText
             android:inputType="numberSigned|numberDecimal"
@@ -74,7 +74,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Latitud">
+        android:hint="@string/hint_latitud">
 
         <com.google.android.material.textfield.TextInputEditText
             android:inputType="numberSigned|numberDecimal"
@@ -92,7 +92,7 @@
             android:id="@+id/actualizar"
             android:layout_width="206dp"
             android:layout_height="wrap_content"
-            android:text="Actualizar" />
+            android:text="@string/actualizar" />
 
         <Button
             android:id="@+id/eliminar"
@@ -103,7 +103,7 @@
             android:layout_marginEnd="0dp"
             android:layout_toEndOf="@+id/actualizar"
             android:backgroundTint="#FB3838"
-            android:text="Eliminar"
+            android:text="@string/eliminar"
             android:textSize="12sp" />
     </RelativeLayout>
 

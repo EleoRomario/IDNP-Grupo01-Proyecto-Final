@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:onClick="@{()->fragment.goToEventDetails()}"
-                    android:text="Ver detalle"
+                    android:text="@string/eventDetail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/event_title"
                     app:layout_constraintTop_toBottomOf="@id/calendar_icon" />
