@@ -25,7 +25,7 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
     ArrayList<Eventos> listaOriginal;
     FragmentCommunication mCommunicator;
 
-    public ListaEventosAdapter(ArrayList<Eventos> listaEventos, FragmentCommunication communication){
+    public ListaEventosAdapter(ArrayList<Eventos> listaEventos, FragmentCommunication communication) {
         this.listaEventos = listaEventos;
         listaOriginal = new ArrayList<>();
         listaOriginal.addAll(listaEventos);
@@ -34,13 +34,13 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
 
     // Crea la interfaz que implementaras en la actividad
     public interface FragmentCommunication {
-        void respond(int position,long id,String lugar, String titulo, String descripcion, String fecha, Double latitud, Double longitud);
+        void respond(int position, long id, String lugar, String titulo, String descripcion, String fecha, Double latitud, Double longitud);
     }
 
     @NonNull
     @Override
     public ContactoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item, null, false);
         ContactoViewHolder holder = new ContactoViewHolder(view, mCommunicator);
         return new ContactoViewHolder(view, mCommunicator);
     }
@@ -60,21 +60,21 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
         String data = listaEventos.get(position).getId().toString();
 
         EditEventFragment editEventFragment = new EditEventFragment();
-        Bundle bundle=new Bundle();
-        bundle.putString("ID",data);
+        Bundle bundle = new Bundle();
+        bundle.putString("ID", data);
         editEventFragment.setArguments(bundle);
 
     }
 
     //Clase para buscar Eventos por titulo
-    public void filtrado(String txtBuscar){
+    public void filtrado(String txtBuscar) {
 
         int longitud = txtBuscar.length();
-        if(longitud==0){
+        if (longitud == 0) {
             listaEventos.clear();
             listaEventos.addAll(listaOriginal);
-        }else{
-            List<Eventos> collec = listaEventos.stream().filter(i->i.getTitulo().toLowerCase().contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
+        } else {
+            List<Eventos> collec = listaEventos.stream().filter(i -> i.getTitulo().toLowerCase().contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
             listaEventos.clear();
             listaEventos.addAll(collec);
         }
@@ -86,7 +86,8 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
 
         return listaEventos.size();
     }
-    public class ContactoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+    public class ContactoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView viewId, viewNombre, viewTitulo, viewFecha, viewDescripcion, viewLongitud, viewLatitud;
 
@@ -107,7 +108,7 @@ public class ListaEventosAdapter extends RecyclerView.Adapter<ListaEventosAdapte
         @Override
         public void onClick(View view) {
             //mCommunicator.respond(getAdapterPosition(),listaEventos.get(getAdapterPosition()).getNombre(),listaEventos.get(getAdapterPosition()).getTitulo());
-            mCommunicator.respond(getAdapterPosition(),listaEventos.get(getAdapterPosition()).getId(),listaEventos.get(getAdapterPosition()).getNombre(),listaEventos.get(getAdapterPosition()).getTitulo(),listaEventos.get(getAdapterPosition()).getDescripcion(),listaEventos.get(getAdapterPosition()).getFecha(),listaEventos.get(getAdapterPosition()).getLatitud(),listaEventos.get(getAdapterPosition()).getLongitud());
+            mCommunicator.respond(getAdapterPosition(), listaEventos.get(getAdapterPosition()).getId(), listaEventos.get(getAdapterPosition()).getNombre(), listaEventos.get(getAdapterPosition()).getTitulo(), listaEventos.get(getAdapterPosition()).getDescripcion(), listaEventos.get(getAdapterPosition()).getFecha(), listaEventos.get(getAdapterPosition()).getLatitud(), listaEventos.get(getAdapterPosition()).getLongitud());
         }
     }
 }
