@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_eventDetailFragment_to_eventOverview"
             app:destination="@id/eventOverview" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventServicesFragment"
+            app:destination="@id/eventServicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/newEventFragment"
@@ -83,4 +86,9 @@
             android:id="@+id/action_editEventFragment_to_eventsDBFragment"
             app:destination="@id/eventsDBFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/eventServicesFragment"
+        android:name="idnp.grupo_uno.proyecto_final.EventServicesFragment"
+        android:label="fragment_event_services"
+        tools:layout="@layout/fragment_event_services" />
 </navigation>
