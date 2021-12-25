@@ -24,7 +24,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventosVie
 
     @Override
     public EventosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_item, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_item, parent, false);
         RecyclerView.LayoutParams layParams = new RecyclerView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layParams);
