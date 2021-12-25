@@ -123,6 +123,26 @@
                 app:layout_constraintStart_toStartOf="@id/event_title"
                 app:layout_constraintTop_toBottomOf="@id/tour_services_title" />
 
+            <com.taufiqrahman.reviewratings.RatingReviews
+                android:id="@+id/rating_reviews"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                app:animation="true"
+                app:layout_constraintEnd_toEndOf="@id/event_title"
+                app:layout_constraintStart_toStartOf="@id/event_title"
+
+                app:layout_constraintTop_toBottomOf="@id/stats"
+                app:max_value="20"
+                app:show_label="true"
+                app:spaces="1dp"
+                app:text_color="#333333"
+                app:text_size="10sp"
+                app:rounded="true"
+                app:width="15dp" />
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
