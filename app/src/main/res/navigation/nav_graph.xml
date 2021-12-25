@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventServicesFragment"
-        android:name="idnp.grupo_uno.proyecto_final.EventServicesFragment"
+        android:name="idnp.grupo_uno.proyecto_final.ui.events.EventServicesFragment"
         android:label="fragment_event_services"
         tools:layout="@layout/fragment_event_services" />
 </navigation>
