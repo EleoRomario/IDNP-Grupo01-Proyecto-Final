@@ -73,16 +73,6 @@
                 app:layout_constraintTop_toBottomOf="@id/calendar_icon" />
 
             <TextView
-                android:id="@+id/gallery_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Galería"
-                android:textAppearance="?textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="@id/event_title"
-                app:layout_constraintTop_toBottomOf="@id/event_description" />
-
-            <TextView
                 android:id="@+id/localization_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +80,7 @@
                 android:text="Ubicación"
                 android:textAppearance="?textAppearanceSubtitle1"
                 app:layout_constraintStart_toStartOf="@id/event_title"
-                app:layout_constraintTop_toBottomOf="@id/gallery_title" />
+                app:layout_constraintTop_toBottomOf="@id/event_description" />
 
             <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
                 android:nestedScrollingEnabled="true"
@@ -105,16 +95,6 @@
                 app:layout_constraintTop_toBottomOf="@id/localization_title" />
 
             <TextView
-                android:id="@+id/tour_services_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Servicios de Tour"
-                android:textAppearance="?textAppearanceSubtitle1"
-                app:layout_constraintStart_toStartOf="@id/event_title"
-                app:layout_constraintTop_toBottomOf="@id/map" />
-
-            <TextView
                 android:id="@+id/stats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +102,7 @@
                 android:text="Estadísticas"
                 android:textAppearance="?textAppearanceSubtitle1"
                 app:layout_constraintStart_toStartOf="@id/event_title"
-                app:layout_constraintTop_toBottomOf="@id/tour_services_title" />
+                app:layout_constraintTop_toBottomOf="@id/map" />
 
             <com.taufiqrahman.reviewratings.RatingReviews
                 android:id="@+id/rating_reviews"
